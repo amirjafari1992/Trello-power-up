@@ -1,1 +1,7 @@
 node_modules
+
+#Parcel JS Cache Folder
+.cache/
+
+#parcel build folder
+dist/
