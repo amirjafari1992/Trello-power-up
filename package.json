@@ -1,0 +1,13 @@
+{
+  "name": "perkimator-powerup",
+  "version": "1.0.0",
+  "description": "A small point manager for perkimator project",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel build src/html/*.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
