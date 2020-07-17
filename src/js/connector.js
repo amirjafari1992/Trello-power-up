@@ -17,7 +17,7 @@ var GRAY_ICON =
 var onBtnClick = function (t, opts) {
   var point = prompt("Please enter your point", "0");
   if (point != null) {
-    alert(`your point is ${point}`)
+    alert(`your point is ${point}`);
   }
 };
 
@@ -33,5 +33,15 @@ window.TrelloPowerUp.initialize({
         condition: "edit",
       },
     ];
+  },
+  "card-badges": function (t, opts) {
+    return t.card("all").then(function (card) {
+      console.log(card);
+      return [
+        {
+          text: card.idShort,
+        },
+      ];
+    });
   },
 });
