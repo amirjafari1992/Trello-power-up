@@ -1,4 +1,4 @@
-// console.log("hello world!");
+console.log("hello world!");
 // window.TrelloPowerUp.initialize({
 //   "card-badges": function (t, opts) {
 //     return t.card('all')
