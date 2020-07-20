@@ -23,40 +23,37 @@ async function postData(url = "", data = {}) {
 }
 
 var onBtnClick = function (t, opts) {
-  return Promise.all([t.get("card", "private", "perkiPoint")]).spread(
-    function (perkiPoint) {
-      if (perkiPoint != null) {
-        var point = prompt("Please enter your point", perkiPoint);
-      } else {
-        var point = prompt("Please enter your point", "0");
-      }
-      if (point != null) {
-        var data = "";
-        return Promise.all([t.get("board", "private", "apiKey")])
-          .spread(function (key) {
-            if (key != null) {
-              t.set("card", "private", "perkiPoint", point);
-              t.card("all").then(function (card) {
-                data = {
-                  cardId: card.id,
-                  storyPoints: point,
-                };
-                fetch(
-                  `https://beta.perkimator.com/powerup?apiKey=${key}`,
-                  {
-                    method: "POST",
-                    body: JSON.stringify(data),
-                  }
-                );
-              });
-            } else {
-              alert("You must add your API KEY frist!");
-            }
-          })
-          .then(function () {});
-      }
+  return Promise.all([t.get("card", "private", "perkiPoint")]).spread(function (
+    perkiPoint
+  ) {
+    if (perkiPoint != null) {
+      var point = prompt("Please enter your point", perkiPoint);
+    } else {
+      var point = prompt("Please enter your point", "0");
     }
-  );
+    if (point != null) {
+      var data = "";
+      return Promise.all([t.get("board", "private", "apiKey")])
+        .spread(function (key) {
+          if (key != null) {
+            t.set("card", "private", "perkiPoint", point);
+            t.card("all").then(function (card) {
+              data = {
+                cardId: card.id,
+                storyPoints: point,
+              };
+              fetch(`https://beta.perkimator.com/powerup?apiKey=${key}`, {
+                method: "POST",
+                body: JSON.stringify(data),
+              });
+            });
+          } else {
+            alert("You must add your API KEY frist!");
+          }
+        })
+        .then(function () {});
+    }
+  });
 };
 
 window.TrelloPowerUp.initialize({
