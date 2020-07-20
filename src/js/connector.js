@@ -24,15 +24,8 @@ var onBtnClick = function (t, opts) {
                 cardId: card.id,
                 storyPoints: point,
               };
-              // fetch(
-              //   `https://beta.perkimator.com/callback/powerup?apiKey=${key}`,
-              //   {
-              //     method: "POST", // *GET, POST, PUT, DELETE, etc.
-              //     body: JSON.stringify(data), // body data type must match "Content-Type" header
-              //   }
-              // );
               axios
-                .post(`https://beta.perkimator.com/callback/powerup?apiKey=${key}`, data)
+                .post(`https://beta.perkimator.com/callback/powerup?apiKey=546ccf19-36ed-4117-9faf-4d10eb00c0a5`, data)
                 .then(function (response) {})
                 .catch(function (error) {});
             });
