@@ -40,13 +40,13 @@ var onBtnClick = function (t, opts) {
                   storyPoints: point
                 }
                 console.log(data)
-                return postData(`https://beta.perkimator.com/powerup?apiKey=${key}`, data).then(
+                postData(`https://beta.perkimator.com/powerup?apiKey=${key}`, data).then(
                   (response) => {
                     console.log(response); 
                     alert('done')
-                    return t.set("board", "private", "perkiPoint", point);
                   }
                 );
+                return t.set("board", "private", "perkiPoint", point);
                 
               });
             } else {
