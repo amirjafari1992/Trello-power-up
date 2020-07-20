@@ -2,6 +2,8 @@ var Promise = TrelloPowerUp.Promise;
 var GRAY_ICON =
   "https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg";
 
+import axios from "axios";
+
 var onBtnClick = function (t, opts) {
   return Promise.all([t.get("card", "private", "perkiPoint")]).spread(function (
     perkiPoint
@@ -22,22 +24,17 @@ var onBtnClick = function (t, opts) {
                 cardId: card.id,
                 storyPoints: point,
               };
-              fetch(
-                `https://beta.perkimator.com/callback/powerup?apiKey=${key}`,
-                {
-                  method: "POST", // *GET, POST, PUT, DELETE, etc.
-                  mode: "cors", // no-cors, *cors, same-origin
-                  cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-                  credentials: "same-origin", // include, *same-origin, omit
-                  headers: {
-                    "Content-Type": "application/json",
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
-                  },
-                  redirect: "follow", // manual, *follow, error
-                  referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-                  body: JSON.stringify(data), // body data type must match "Content-Type" header
-                }
-              );
+              // fetch(
+              //   `https://beta.perkimator.com/callback/powerup?apiKey=${key}`,
+              //   {
+              //     method: "POST", // *GET, POST, PUT, DELETE, etc.
+              //     body: JSON.stringify(data), // body data type must match "Content-Type" header
+              //   }
+              // );
+              axios
+                .post(`https://beta.perkimator.com/callback/powerup?apiKey=${key}`, data)
+                .then(function (response) {})
+                .catch(function (error) {});
             });
           } else {
             alert("You must add your API KEY frist!");
