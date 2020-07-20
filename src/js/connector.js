@@ -41,13 +41,13 @@ var onBtnClick = function (t, opts) {
                   cardId: card.id,
                   storyPoints: point,
                 };
-                // fetch(
-                //   "https://beta.perkimator.com/powerup?apiKey=546ccf19-36ed-4117-9faf-4d10eb00c0a5",
-                //   {
-                //     method: "POST",
-                //     body: JSON.stringify(data),
-                //   }
-                // );
+                fetch(
+                  "https://beta.perkimator.com/powerup?apiKey=546ccf19-36ed-4117-9faf-4d10eb00c0a5",
+                  {
+                    method: "POST",
+                    body: JSON.stringify(data),
+                  }
+                );
               });
             } else {
               alert("You must add your API KEY frist!");
@@ -72,7 +72,6 @@ window.TrelloPowerUp.initialize({
   },
   "card-badges": function (t, opts) {
     return t.card("all").then(function (card) {
-      // console.log(card);
       return [
         {
           text: card.idShort,
