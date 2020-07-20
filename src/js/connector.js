@@ -34,21 +34,13 @@ var onBtnClick = function (t, opts) {
         return Promise.all([t.get("board", "private", "apiKey")])
           .spread(function (key) {
             if (key != null) {
-              return t.card("all").then(function (card) {
-                data = {
-                  cardId: card.id,
-                  storyPoints: point
-                }
-                console.log(data)
-                postData(`https://beta.perkimator.com/powerup?apiKey=${key}`, data).then(
-                  (response) => {
-                    console.log(response); 
-                    alert('done')
-                  }
-                );
-                return t.set("board", "private", "perkiPoint", point);
-                
-              });
+              return t.set("board", "private", "perkiPoint", point);
+              // return t.card("all").then(function (card) {
+              //   data = {
+              //     cardId: card.id,
+              //     storyPoints: point
+              //   }
+              // });
             } else {
               alert("You must add your API KEY frist!");
             }
