@@ -5,17 +5,15 @@ var GRAY_ICON =
 var onBtnClick = function (t, opts) {
   var point = prompt("Please enter your point", "0");
   if (point != null) {
-    t.render(function () {
-      return Promise.all([t.get("board", "private", "apiKey")])
-        .spread(function (rate) {
-          if (rate != null) {
-            console.log(rate);
-          }
-        })
-        .then(function () {
-          t.sizeTo("#content").done();
-        });
-    });
+    return Promise.all([t.get("board", "private", "apiKey")])
+      .spread(function (rate) {
+        if (rate != null) {
+          console.log(rate);
+        }
+      })
+      .then(function () {
+        t.sizeTo("#content").done();
+      });
   }
 };
 
