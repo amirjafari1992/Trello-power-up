@@ -40,6 +40,7 @@ var onBtnClick = function (t, opts) {
                   cardId: card.id,
                   storyPoints: point,
                 };
+                console.log(data)
               });
             } else {
               alert("You must add your API KEY frist!");
