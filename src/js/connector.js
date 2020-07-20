@@ -3,6 +3,7 @@ var GRAY_ICON =
   "https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg";
 
 var ApiKey = "";
+var CardID = "";
 
 var onBtnClick = function (t, opts) {
   var point = prompt("Please enter your point", "0");
@@ -12,17 +13,14 @@ var onBtnClick = function (t, opts) {
         if (key != null) {
           ApiKey = key;
           return t.card("all").then(function (card) {
-            console.log(card.id);
-            
+            CardID = card.id;
           });
-
+          console.log(`key is ==> ${ApiKey} and card id is ==> ${CardID}`)
         } else {
           alert("You must add you API KEY frist!");
         }
       })
-      .then(function () {
-
-      });
+      .then(function () {});
   }
 };
 
