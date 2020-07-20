@@ -2,18 +2,21 @@ var Promise = TrelloPowerUp.Promise;
 var GRAY_ICON =
   "https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg";
 
+  var ApiKey = ''
+
 var onBtnClick = function (t, opts) {
   var point = prompt("Please enter your point", "0");
   if (point != null) {
     return Promise.all([t.get("board", "private", "apiKey")])
-      .spread(function (rate) {
-        if (rate != null) {
-          console.log(rate);
+      .spread(function (key) {
+        if (key != null) {
+          ApiKey = key
+        }
+        else {
+          alert('You must add you API KEY frist!')
         }
       })
-      .then(function () {
-        t.sizeTo("#content").done();
-      });
+      .then(function () {});
   }
 };
 
