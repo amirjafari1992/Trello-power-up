@@ -12,22 +12,22 @@ var onBtnClick = function (t, opts) {
     } else {
       var point = prompt("Please enter your point", "0");
     }
+    if (point != null) {
+      return Promise.all([t.get("board", "private", "apiKey")])
+        .spread(function (key) {
+          if (key != null) {
+            ApiKey = key;
+            return t.card("all").then(function (card) {
+              CardID = card.id;
+              return t.set('board', 'private', 'perkiPoint', point)
+            });
+          } else {
+            alert("You must add you API KEY frist!");
+          }
+        })
+        .then(function () {});
+    }
   })
-  if (point != null) {
-    return Promise.all([t.get("board", "private", "apiKey")])
-      .spread(function (key) {
-        if (key != null) {
-          ApiKey = key;
-          return t.card("all").then(function (card) {
-            CardID = card.id;
-            return t.set('board', 'private', 'perkiPoint', point)
-          });
-        } else {
-          alert("You must add you API KEY frist!");
-        }
-      })
-      .then(function () {});
-  }
 };
 
 window.TrelloPowerUp.initialize({
