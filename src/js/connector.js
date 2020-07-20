@@ -54,7 +54,15 @@ window.TrelloPowerUp.initialize({
     return t.card("all").then(function (card) {
       return [
         {
-          text: 200,
+          text: Promise.all([t.get("card", "private", "perkiPoint")]).spread(
+            function (perkiPoint) {
+              if (perkiPoint != null) {
+                perkiPoint;
+              } else {
+                '0';
+              }
+            }
+          ),
         },
       ];
     });
