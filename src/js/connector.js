@@ -6,7 +6,13 @@ var ApiKey = "";
 var CardID = "";
 
 var onBtnClick = function (t, opts) {
-  var point = prompt("Please enter your point", "0");
+  return Promise.all([t.get("board", "private", "perkiPoint")]).spread(function(perkiPoint){
+    if(perkiPoint != null) {
+      var point = prompt("Please enter your point", perkiPoint);
+    } else {
+      var point = prompt("Please enter your point", "0");
+    }
+  })
   if (point != null) {
     return Promise.all([t.get("board", "private", "apiKey")])
       .spread(function (key) {
@@ -14,7 +20,7 @@ var onBtnClick = function (t, opts) {
           ApiKey = key;
           return t.card("all").then(function (card) {
             CardID = card.id;
-            console.log(`key is ==> ${ApiKey} and card id is ==> ${CardID}`);
+            return t.set('board', 'private', 'perkiPoint', point)
           });
         } else {
           alert("You must add you API KEY frist!");
