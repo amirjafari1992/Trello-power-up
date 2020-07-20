@@ -3,15 +3,15 @@
 var Promise = TrelloPowerUp.Promise;
 var t = TrelloPowerUp.iframe();
 
-var hourlyrate = document.getElementById('hourlyrate');
+var apiToken = document.getElementById('apiToken');
 
 t.render(function(){
   return Promise.all([
-    t.get('board', 'private', 'hourlyrate')
+    t.get('board', 'private', 'apiTokenId')
   ])
   .spread(function(rate){
     if(rate != null) {
-      hourlyrate.value = rate;
+      apiToken.value = rate;
     }
   })
   .then(function(){
@@ -21,7 +21,7 @@ t.render(function(){
 });
 
 document.getElementById('save').addEventListener('click', function(){
-  return t.set('board', 'private', 'hourlyrate', hourlyrate.value)
+  return t.set('board', 'private', 'apiTokenId', apiToken.value)
   .then(function(){
     t.closePopup();
   })
