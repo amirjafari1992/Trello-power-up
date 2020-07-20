@@ -34,8 +34,7 @@ window.TrelloPowerUp.initialize({
   'show-settings': function(t, options){
 		return t.popup({
 			title: 'Perkimator Settings',
-			url: 'settings.html',
-			height: 184
+			url: 'settings.html'
 		});
 	},
 });
