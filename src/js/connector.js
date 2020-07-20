@@ -59,6 +59,16 @@ window.TrelloPowerUp.initialize({
       ];
     });
   },
+  "card-detail-badges": function (t, opts) {
+    return t.get("card", "private", "perkiPoint").then(function (perkiPoint) {
+      return [
+        {
+          text: perkiPoint,
+          color: "purple",
+        },
+      ];
+    });
+  },
   "show-settings": function (t, options) {
     return t.popup({
       title: "Perkimator Settings",
