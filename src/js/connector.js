@@ -34,7 +34,7 @@ window.TrelloPowerUp.initialize({
   'show-settings': function(t, options){
 		return t.popup({
 			title: 'Settings',
-			url: 'https://google.com,
+			url: 'https://google.com',
 			height: 184
 		});
 	},
