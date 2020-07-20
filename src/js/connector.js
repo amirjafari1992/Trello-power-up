@@ -5,7 +5,7 @@ var GRAY_ICON =
 var onBtnClick = function (t, opts) {
   var point = prompt("Please enter your point", "0");
   if (point != null) {
-    alert(t.get('board', 'private', 'apiKey'));
+    console.log(t.get('board', 'private', 'apiKey'));
   }
 };
 
