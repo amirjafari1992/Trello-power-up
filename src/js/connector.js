@@ -34,7 +34,7 @@ window.TrelloPowerUp.initialize({
   'show-settings': function(t, options){
 		return t.popup({
 			title: 'Settings',
-			url: './settings.js',
+			url: './src/html/settings.js',
 			height: 184
 		});
 	},
