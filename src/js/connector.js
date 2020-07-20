@@ -51,10 +51,10 @@ window.TrelloPowerUp.initialize({
     ];
   },
   "card-badges": function (t, opts) {
-    return t.card("all").then(function (card) {
+    return t.get("card", "private", "perkiPoint").then(function (perkiPoint) {
       return [
         {
-          text: Promise.all([t.get("card", "private", "perkiPoint")])
+          text: perkiPoint
         },
       ];
     });
