@@ -57,9 +57,7 @@ window.TrelloPowerUp.initialize({
           text: Promise.all([t.get("card", "private", "perkiPoint")]).spread(
             function (perkiPoint) {
               if (perkiPoint != null) {
-                perkiPoint;
-              } else {
-                '0';
+                return perkiPoint;
               }
             }
           ),
