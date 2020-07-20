@@ -2,7 +2,7 @@ var Promise = TrelloPowerUp.Promise;
 var GRAY_ICON =
   "https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg";
 
-  var ApiKey = ''
+var ApiKey = "";
 
 var onBtnClick = function (t, opts) {
   var point = prompt("Please enter your point", "0");
@@ -10,13 +10,16 @@ var onBtnClick = function (t, opts) {
     return Promise.all([t.get("board", "private", "apiKey")])
       .spread(function (key) {
         if (key != null) {
-          ApiKey = key
-        }
-        else {
-          alert('You must add you API KEY frist!')
+          ApiKey = key;
+          console.log(t.id)
+
+        } else {
+          alert("You must add you API KEY frist!");
         }
       })
-      .then(function () {});
+      .then(function () {
+
+      });
   }
 };
 
@@ -33,7 +36,7 @@ window.TrelloPowerUp.initialize({
   },
   "card-badges": function (t, opts) {
     return t.card("all").then(function (card) {
-      console.log(card);
+      // console.log(card);
       return [
         {
           text: card.idShort,
