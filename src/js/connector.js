@@ -23,7 +23,7 @@ async function postData(url = "", data = {}) {
 }
 
 var onBtnClick = function (t, opts) {
-  return Promise.all([t.get("board", "private", "perkiPoint")]).spread(
+  return Promise.all([t.get("card", "private", "perkiPoint")]).spread(
     function (perkiPoint) {
       if (perkiPoint != null) {
         var point = prompt("Please enter your point", perkiPoint);
@@ -31,19 +31,24 @@ var onBtnClick = function (t, opts) {
         var point = prompt("Please enter your point", "0");
       }
       if (point != null) {
-        var data = '';
+        var data = "";
         return Promise.all([t.get("board", "private", "apiKey")])
           .spread(function (key) {
             if (key != null) {
-              t.set("board", "private", "perkiPoint", point);
+              t.set("card", "private", "perkiPoint", point);
               t.card("all").then(function (card) {
                 data = {
                   cardId: card.id,
                   storyPoints: point,
                 };
+                // fetch(
+                //   "https://beta.perkimator.com/powerup?apiKey=546ccf19-36ed-4117-9faf-4d10eb00c0a5",
+                //   {
+                //     method: "POST",
+                //     body: JSON.stringify(data),
+                //   }
+                // );
               });
-              console.log(data)
-
             } else {
               alert("You must add your API KEY frist!");
             }
