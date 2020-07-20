@@ -12,10 +12,10 @@ var onBtnClick = function (t, opts) {
       .spread(function (key) {
         if (key != null) {
           ApiKey = key;
-          t.card("all").then(function (card) {
+          return t.card("all").then(function (card) {
             CardID = card.id;
+            console.log(`key is ==> ${ApiKey} and card id is ==> ${CardID}`);
           });
-          console.log(`key is ==> ${ApiKey} and card id is ==> ${CardID}`)
         } else {
           alert("You must add you API KEY frist!");
         }
