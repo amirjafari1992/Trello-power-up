@@ -8,10 +8,8 @@ var onBtnClick = function (t, opts) {
   ) {
     if (perkiPoint != null) {
       var point = prompt("Please enter your point", perkiPoint);
-      badgePoint = perkiPoint;
     } else {
       var point = prompt("Please enter your point", "0");
-      badgePoint = "";
     }
     if (point != null) {
       var data = "";
@@ -56,7 +54,7 @@ window.TrelloPowerUp.initialize({
     return t.card("all").then(function (card) {
       return [
         {
-          text: badgePoint,
+          text: 200,
         },
       ];
     });
