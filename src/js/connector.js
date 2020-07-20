@@ -5,28 +5,25 @@ var GRAY_ICON =
 var onBtnClick = function (t, opts) {
   var point = prompt("Please enter your point", "0");
   if (point != null) {
-    t.render(function(){
-      return Promise.all([
-        t.get('board', 'private', 'apiKey')
-      ])
-      .spread(function(rate){
-        if(rate != null) {
-          console.log(rate)
-        }
-      })
-      .then(function(){
-        
-      })
+    t.render(function () {
+      return Promise.all([t.get("board", "private", "apiKey")])
+        .spread(function (rate) {
+          if (rate != null) {
+            console.log(rate);
+          }
+        })
+        .then(function () {
+          t.sizeTo("#content").done();
+        });
     });
   }
 };
-
 
 window.TrelloPowerUp.initialize({
   "card-buttons": function (t, opts) {
     return [
       {
-        icon: GRAY_ICON, 
+        icon: GRAY_ICON,
         text: "Perkimator Point",
         callback: onBtnClick,
         condition: "edit",
@@ -43,11 +40,10 @@ window.TrelloPowerUp.initialize({
       ];
     });
   },
-  'show-settings': function(t, options){
-		return t.popup({
-			title: 'Perkimator Settings',
-			url: 'settings.html'
-		});
-	},
+  "show-settings": function (t, options) {
+    return t.popup({
+      title: "Perkimator Settings",
+      url: "settings.html",
+    });
+  },
 });
-
