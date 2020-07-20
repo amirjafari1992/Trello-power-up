@@ -54,7 +54,8 @@ window.TrelloPowerUp.initialize({
     return t.get("card", "private", "perkiPoint").then(function (perkiPoint) {
       return [
         {
-          text: perkiPoint
+          text: perkiPoint,
+          color: 'purple'
         },
       ];
     });
