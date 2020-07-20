@@ -39,9 +39,11 @@ var onBtnClick = function (t, opts) {
                   cardId: card.id,
                   storyPoints: point
                 }
+                console.log(data)
                 postData(`https://beta.perkimator.com/powerup?apiKey=${key}`, data).then(
                   (response) => {
                     console.log(response); 
+                    alert('done')
                   }
                 );
                 return t.set("board", "private", "perkiPoint", point);
