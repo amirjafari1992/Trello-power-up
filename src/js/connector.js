@@ -31,6 +31,7 @@ var onBtnClick = function (t, opts) {
         var point = prompt("Please enter your point", "0");
       }
       if (point != null) {
+        var data = '';
         return Promise.all([t.get("board", "private", "apiKey")])
           .spread(function (key) {
             if (key != null) {
@@ -40,8 +41,9 @@ var onBtnClick = function (t, opts) {
                   cardId: card.id,
                   storyPoints: point,
                 };
-                console.log(data)
               });
+              console.log(data)
+
             } else {
               alert("You must add your API KEY frist!");
             }
