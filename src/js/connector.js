@@ -34,13 +34,13 @@ var onBtnClick = function (t, opts) {
         return Promise.all([t.get("board", "private", "apiKey")])
           .spread(function (key) {
             if (key != null) {
-              return t.set("board", "private", "perkiPoint", point);
-              // return t.card("all").then(function (card) {
-              //   data = {
-              //     cardId: card.id,
-              //     storyPoints: point
-              //   }
-              // });
+              t.set("board", "private", "perkiPoint", point);
+              t.card("all").then(function (card) {
+                data = {
+                  cardId: card.id,
+                  storyPoints: point,
+                };
+              });
             } else {
               alert("You must add your API KEY frist!");
             }
