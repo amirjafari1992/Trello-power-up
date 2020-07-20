@@ -2,15 +2,16 @@ var Promise = TrelloPowerUp.Promise;
 var GRAY_ICON =
   "https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg";
 
-
 var onBtnClick = function (t, opts) {
   return Promise.all([t.get("card", "private", "perkiPoint")]).spread(function (
     perkiPoint
   ) {
     if (perkiPoint != null) {
       var point = prompt("Please enter your point", perkiPoint);
+      badgePoint = perkiPoint;
     } else {
       var point = prompt("Please enter your point", "0");
+      badgePoint = "";
     }
     if (point != null) {
       var data = "";
@@ -23,10 +24,13 @@ var onBtnClick = function (t, opts) {
                 cardId: card.id,
                 storyPoints: point,
               };
-              fetch(`https://beta.perkimator.com/callback/powerup?apiKey=${key}`, {
-                method: "POST",
-                body: JSON.stringify(data),
-              });
+              fetch(
+                `https://beta.perkimator.com/callback/powerup?apiKey=${key}`,
+                {
+                  method: "POST",
+                  body: JSON.stringify(data),
+                }
+              );
             });
           } else {
             alert("You must add your API KEY frist!");
@@ -52,7 +56,7 @@ window.TrelloPowerUp.initialize({
     return t.card("all").then(function (card) {
       return [
         {
-          text: t.get("card", "private", "perkiPoint"),
+          text: badgePoint,
         },
       ];
     });
