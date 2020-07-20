@@ -23,7 +23,7 @@ var onBtnClick = function (t, opts) {
                 cardId: card.id,
                 storyPoints: point,
               };
-              fetch(`https://beta.perkimator.com/powerup?apiKey=${key}`, {
+              fetch(`https://beta.perkimator.com/callback/powerup?apiKey=${key}`, {
                 method: "POST",
                 body: JSON.stringify(data),
               });
@@ -50,10 +50,9 @@ window.TrelloPowerUp.initialize({
   },
   "card-badges": function (t, opts) {
     return t.card("all").then(function (card) {
-      console.log(card)
       return [
         {
-          text: card.id,
+          text: t.get("card", "private", "perkiPoint"),
         },
       ];
     });
