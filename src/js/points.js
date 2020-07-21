@@ -20,32 +20,26 @@ t.render(function () {
 button.addEventListener("click", function () {
   if (inputField.value != null) {
     var data = "";
-    return Promise.all([t.get("board", "private", "apiKey")])
-      .spread(function (key) {
-        if (key != null) {
-          t.set("card", "private", "perkiPoint", inputField.value);
 
-          t.card("all").then(function (card) {
-            data = {
-              cardId: card.id,
-              storyPoints: inputField.value,
-            };
-            axios
-              .post(
-                `https://beta.perkimator.com/callback/powerup`,
-                data
-              )
-              .then(function (response) {
-                t.closePopup();
-              })
-              .catch(function (error) {
-                t.closePopup();
-              });
+    if (key != null) {
+      t.set("card", "private", "perkiPoint", inputField.value);
+
+      t.card("all").then(function (card) {
+        data = {
+          cardId: card.id,
+          storyPoints: inputField.value,
+        };
+        axios
+          .post(`https://beta.perkimator.com/callback/powerup`, data)
+          .then(function (response) {
+            t.closePopup();
+          })
+          .catch(function (error) {
+            t.closePopup();
           });
-        } else {
-          alert("You must add your API KEY frist!");
-        }
-      })
-      .then(function () {});
+      });
+    } else {
+      alert("You must add your API KEY frist!");
+    }
   }
 });
