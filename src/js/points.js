@@ -21,8 +21,8 @@ button.addEventListener("click", function () {
     return Promise.all([t.get("board", "private", "apiKey")])
       .spread(function (key) {
         if (key != null) {
-        //   t.set("card", "private", "perkiPoint", point);
-        alert()
+          t.set("card", "private", "perkiPoint", point);
+
         //   t.card("all").then(function (card) {
         //     data = {
         //       cardId: card.id,
