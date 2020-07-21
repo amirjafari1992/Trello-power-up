@@ -5,7 +5,6 @@ import axios from "axios";
 var inputField = document.getElementById("pointInput");
 var button = document.getElementById("savePoint");
 
-
 t.render(function () {
   return Promise.all([t.get("card", "private", "perkiPoint")]).spread(function (
     perkiPoint
@@ -36,10 +35,11 @@ button.addEventListener("click", function () {
                 `https://beta.perkimator.com/callback/powerup?apiKey=546ccf19-36ed-4117-9faf-4d10eb00c0a5`,
                 data
               )
-              .then(function (response) {})
+              .then(function (response) {
+                t.closePopup();
+              })
               .catch(function (error) {});
           });
-          t.closePopup();
         } else {
           alert("You must add your API KEY frist!");
         }
