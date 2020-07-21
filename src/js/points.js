@@ -1,7 +1,10 @@
-var inputField = document.getElementById("pointInput");
-var button = document.getElementById("savePoint");
 var Promise = TrelloPowerUp.Promise;
 var t = TrelloPowerUp.iframe();
+import axios from "axios";
+
+var inputField = document.getElementById("pointInput");
+var button = document.getElementById("savePoint");
+
 
 t.render(function () {
   return Promise.all([t.get("card", "private", "perkiPoint")]).spread(function (
