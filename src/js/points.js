@@ -32,7 +32,7 @@ button.addEventListener("click", function () {
             };
             axios
               .post(
-                `https://beta.perkimator.com/callback/powerup?apiKey=546ccf19-36ed-4117-9faf-4d10eb00c0a5`,
+                `https://beta.perkimator.com/callback/powerup`,
                 data
               )
               .then(function (response) {
