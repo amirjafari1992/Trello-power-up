@@ -39,6 +39,7 @@ button.addEventListener("click", function () {
               .then(function (response) {})
               .catch(function (error) {});
           });
+          t.closePopup();
         } else {
           alert("You must add your API KEY frist!");
         }
