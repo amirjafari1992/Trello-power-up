@@ -15,7 +15,7 @@ window.TrelloPowerUp.initialize({
     return [
       {
         icon: GRAY_ICON,
-        text: "Perkss",
+        text: "Perks",
         callback: cardButtonCallback,
         condition: "edit",
       },
