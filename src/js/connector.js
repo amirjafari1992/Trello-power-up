@@ -38,13 +38,21 @@ var onBtnClick = function (t, opts) {
   });
 };
 
+var cardButtonCallback = function(t){
+  return t.popup({
+    title: "Perks points",
+    url: 'timeTracker.html',
+    height: 80
+  });
+};
+
 window.TrelloPowerUp.initialize({
   "card-buttons": function (t, opts) {
     return [
       {
         icon: GRAY_ICON,
         text: "Perkimator Point",
-        callback: onBtnClick,
+        callback: cardButtonCallback,
         condition: "edit",
       },
     ];
