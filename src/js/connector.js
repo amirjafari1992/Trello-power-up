@@ -41,7 +41,7 @@ var onBtnClick = function (t, opts) {
 var cardButtonCallback = function(t){
   return t.popup({
     title: "Perks points",
-    url: 'timeTracker.html',
+    url: 'points.html',
     height: 80
   });
 };
