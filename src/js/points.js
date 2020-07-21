@@ -26,7 +26,7 @@ button.addEventListener("click", function () {
           t.card("all").then(function (card) {
             data = {
               cardId: card.id,
-              storyPoints: point,
+              storyPoints: inputField.value,
             };
             axios
               .post(
