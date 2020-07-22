@@ -21,25 +21,20 @@ button.addEventListener("click", function () {
   if (inputField.value != null) {
     var data = "";
 
-    if (key != null) {
-      t.set("card", "private", "perkiPoint", inputField.value);
-
-      t.card("all").then(function (card) {
-        data = {
-          cardId: card.id,
-          storyPoints: inputField.value,
-        };
-        axios
-          .post(`https://beta.perkimator.com/callback/powerup`, data)
-          .then(function (response) {
-            t.closePopup();
-          })
-          .catch(function (error) {
-            t.closePopup();
-          });
-      });
-    } else {
-      alert("You must add your API KEY frist!");
-    }
+    t.set("card", "private", "perkiPoint", inputField.value);
+    t.card("all").then(function (card) {
+      data = {
+        cardId: card.id,
+        storyPoints: inputField.value,
+      };
+      axios
+        .post(`https://beta.perkimator.com/callback/powerup`, data)
+        .then(function (response) {
+          t.closePopup();
+        })
+        .catch(function (error) {
+          t.closePopup();
+        });
+    });
   }
 });
