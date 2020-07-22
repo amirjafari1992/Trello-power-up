@@ -42,10 +42,10 @@ window.TrelloPowerUp.initialize({
       ];
     });
   },
-  "show-settings": function (t, options) {
-    return t.popup({
-      title: "Perkimator Settings",
-      url: "settings.html",
-    });
-  },
+  // "show-settings": function (t, options) {
+  //   return t.popup({
+  //     title: "Perkimator Settings",
+  //     url: "settings.html",
+  //   });
+  // },
 });
