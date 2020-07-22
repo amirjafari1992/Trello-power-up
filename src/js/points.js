@@ -1,7 +1,7 @@
-var Promise = TrelloPowerUp.Promise;
-var t = TrelloPowerUp.iframe();
 import axios from "axios";
 
+var Promise = TrelloPowerUp.Promise;
+var t = TrelloPowerUp.iframe();
 var inputField = document.getElementById("pointInput");
 var button = document.getElementById("savePoint");
 

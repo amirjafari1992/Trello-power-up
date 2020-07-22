@@ -2,7 +2,6 @@
 
 var Promise = TrelloPowerUp.Promise;
 var t = TrelloPowerUp.iframe();
-
 var apiKey = document.getElementById("apiKey");
 
 t.render(function () {
