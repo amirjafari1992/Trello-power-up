@@ -4,7 +4,7 @@ var GRAY_ICON =
 
 var cardButtonCallback = function(t){
   return t.popup({
-    title: "Perks points",
+    title: "Points",
     url: 'points.html',
     height: 80
   });
