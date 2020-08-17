@@ -6,7 +6,7 @@ var inputField = document.getElementById("pointInput");
 var button = document.getElementById("savePoint");
 
 t.render(function () {
-  return Promise.all([t.get("card", "private", "perkiPoint")]).spread(function (
+  return Promise.all([t.get("card", "public", "perkiPoint")]).spread(function (
     perkiPoint
   ) {
     if (perkiPoint != null) {
@@ -21,7 +21,7 @@ button.addEventListener("click", function () {
   if (inputField.value != null) {
     var data = "";
 
-    t.set("card", "private", "perkiPoint", inputField.value);
+    t.set("card", "public", "perkiPoint", inputField.value);
     t.card("all").then(function (card) {
       data = {
         cardId: card.id,
