@@ -22,7 +22,7 @@ window.TrelloPowerUp.initialize({
     ];
   },
   "card-badges": function (t, opts) {
-    return t.get("card", "private", "perkiPoint").then(function (perkiPoint) {
+    return t.get("card", "shared", "perkiPoint").then(function (perkiPoint) {
       return [
         {
           text: perkiPoint,
@@ -32,7 +32,7 @@ window.TrelloPowerUp.initialize({
     });
   },
   "card-detail-badges": function (t, opts) {
-    return t.get("card", "private", "perkiPoint").then(function (perkiPoint) {
+    return t.get("card", "shared", "perkiPoint").then(function (perkiPoint) {
       return [
         {
           title: 'Perks',
